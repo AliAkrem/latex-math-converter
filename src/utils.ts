@@ -1,7 +1,6 @@
 import { BASIC_SYMBOLS, GREEK_LETTERS, MATH_SYMBOLS } from './constants';
 import {
   LatexSymbolMap,
-  ConversionOptions,
   ConversionRule
 } from './types';
 
@@ -40,42 +39,42 @@ export function createConversionRules(): ConversionRule[] {
     // example: '\\sqrt[3]{27}' // becomes pow(27, 1/3)
     { 
       pattern: /\\sqrt\[(((?![\{\}]).)*)\]\{(((?![\{\}]).)*)\}/g, 
-      replacement: 'pow($3,1/$1)',
+      replacement: 'pow($3, 1/$1)',
     },
   
     // 4. Exponent with curly braces: base^{exponent}
     // example: '2^{3}' // becomes pow(2,3)
     { 
       pattern: /([0-9a-zA-Z\.]+)\^\{(((?![\{\}]).)*)\}/g, 
-      replacement: 'pow($1,$2)',
+      replacement: 'pow($1, $2)',
     },
   
     // 5. Simple exponent: base^exponent
     // example: '2^3' // becomes pow(2,3)
     { 
       pattern: /([0-9a-zA-Z\.]+)\^([0-9a-zA-Z\.]+)/g, 
-      replacement: 'pow($1,$2)',
+      replacement: 'pow($1, $2)',
     },
   
     // 6. Parenthesized base with simple exponent
     // example: '\\left(2+3\\right)^2' // becomes pow(2+3,2)
     { 
       pattern: /\\left\(([0-9a-zA-Z\.\+\*\-\\]+)\\right\)\^([0-9a-zA-Z\.]+)/g, 
-      replacement: 'pow($1,$2)',
+      replacement: 'pow($1, $2)',
     },
   
     // 7. Parenthesized base with curly brace exponent
     // example: '\\left(2+3\\right)^{2}' // becomes pow(2+3,2)
     { 
       pattern: /\\left\(([0-9a-zA-Z\.\+\*\-\\]+)\\right\)\^\{(((?![\{\}]).)*)\}/g, 
-      replacement: 'pow($1,$2)',
+      replacement: 'pow($1, $2)',
     },
   
     // 8. More complex parenthesized base with curly brace exponent
     // example: '\\left(2+3/4\\right)^{2}' // becomes pow(2+3/4,2)
     { 
       pattern: /\\left\(([0-9a-zA-Z\.\+\*\-\\\(\)\/]+)\\right\)\^\{(((?![\{\}]).)*)\}/g, 
-      replacement: 'pow($1,$2)',
+      replacement: 'pow($1, $2)',
     },
   
     // 9. Subscript handling

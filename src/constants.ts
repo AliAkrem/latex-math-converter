@@ -2,7 +2,7 @@ import { LatexSymbolMap } from "./types";
 
 export const BASIC_SYMBOLS: LatexSymbolMap = {
     '\\times': '*',
-    '\\cdot': '·',
+    '\\cdot': '*',
     '\\div': '/',
     '\\pi': 'pi',
     '\\infty': '1e309',

@@ -1,6 +1,5 @@
 import { 
   LatexSymbolMap, 
-  ConversionOptions, 
   ConversionRule 
 } from './types';
 
@@ -32,5 +31,5 @@ export function applyConversionRules(
 
 
 export function addSpacing(text: string): string {
-  return text.replace(/([*/±=<>])/g, ' $1 ').trim();
+  return text.replace(/([*-/+±=<>])/g, ' $1 ').trim();
 }

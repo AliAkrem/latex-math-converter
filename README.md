@@ -5,17 +5,23 @@ LaTeX Math Converter is a tool designed to convert mathematical expressions writ
 
 
 ## Usage
-Provide instructions on how to use the package in a project.
+Provide instructions on how to use this package in a project.
 soon
 
-```js
-const {createLatexConverter} = require('latex-math-converter')
+
+## Start With
+
+```ts
+import createLatexConverter from "latex-math-converter";
 ``` 
 ## Example usage
 
-```js
-const latexExpression = '\\frac{a}{b}';
-const converter = createLatexConverter()
+```ts
+const converter = createLatexConverter();
 
-console.log(converter.convert(latexExpression)) // => (a)/(b)
+let operation1  = "\\frac{a}{b}";
+let operation2  = "a+b";
+
+console.log(converter.convert(operation1)); // => (a)/(b)
+console.log(converter.convert(operation2, { addSpacing: true })); // => a + b 
 ```

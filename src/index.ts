@@ -30,7 +30,7 @@ export function createLatexConverter(
     validateInput(latex);
 
 
-    // remove extra whitespace
+    // remove extra whitespaces
     let result = latex
       .replace(/\s+/g, ' ')
       .trim();

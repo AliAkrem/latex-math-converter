@@ -1,6 +1,6 @@
 {
   "name": "latex-math-converter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert LaTeX mathematical expressions to regular math notation",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -19,6 +19,9 @@
     "parser",
     "typescript"
   ],
+  "repository": {
+    "url": "https://github.com/AliAkrem/latex-math-converter"
+  },
   "author": "AliAkrem",
   "license": "MIT",
   "devDependencies": {
